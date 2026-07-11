@@ -6,7 +6,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCardItems] = useState({});
-  const url = "http://localhost:3000";
+  export const url = "https://food-deliveryapp-backend-5wu2.onrender.com";
   const [token, setToken] = useState("");
   const [food_list, setFoodList] = useState([]);
 
@@ -20,7 +20,7 @@ const StoreContextProvider = (props) => {
       await axios.post(
         url + "/api/cart/add",
         { itemId },
-        { headers: { token } }
+        { headers: { token } },
       );
     }
   };
@@ -31,7 +31,7 @@ const StoreContextProvider = (props) => {
       await axios.post(
         url + "/api/cart/remove",
         { itemId },
-        { headers: { token } }
+        { headers: { token } },
       );
     }
   };
@@ -56,7 +56,7 @@ const StoreContextProvider = (props) => {
     const response = await axios.post(
       url + "/api/cart/get",
       {},
-      { headers: { token } }
+      { headers: { token } },
     );
     setCardItems(response.data.cartData);
   };
