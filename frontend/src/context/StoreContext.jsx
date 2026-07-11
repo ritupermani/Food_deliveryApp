@@ -26,7 +26,7 @@ const StoreContextProvider = (props) => {
   };
 
   const removeFromCart = async (itemId) => {
-    setCardItems((prev) => ({ ...prev, [itemId]: prev[itemId - 1] }));
+    setCardItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if (token) {
       await axios.post(
         url + "/api/cart/remove",
